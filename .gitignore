@@ -1,4 +1,15 @@
-*.class
+/seo/seo/target/
+/seo/seo-i18n/target/
+/seo/seo-testcases/target/
+/seo/seo-resources/target/
+/seo/seo-resources/target/
+/seo/tanaguru-seo-resources/target/
+/seo/seo/src/main/resources/hsql-db.properties
+/seo/src/main/resources/hsql-db.log
+/seo/src/main/resources/hsql-db.properties
+/seo/src/main/resources/hsql-db.script
+/seo/src/main/resources/hsql-db.tmp
+/seo/nb-configuration.xml
 
 # Package Files #
 *.jar

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- Override the BronzeLevelCodeByRefMap to add the bronze level of Seo referential --> 
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <ref bean="testDAO"/>
+        </property>
+        <property name="targetMethod">
+            <value>setBronzeLevelCodeByRefMap</value>
+        </property>
+        <property name="arguments">
+            <map>
+                <entry key="AW21" value="Bz"/>
+                <entry key="AW22" value="Bz"/>
+                <entry key="RGAA22" value="A"/>
+                <entry key="Seo" value="Bz"/>
+            </map>
+        </property>
+    </bean>
+    
+</beans>
