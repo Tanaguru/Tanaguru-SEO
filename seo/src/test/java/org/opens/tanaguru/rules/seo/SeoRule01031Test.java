@@ -65,7 +65,7 @@ public class SeoRule01031Test extends SeoRuleImplementationTestCase {
         assertNull(processResult.getRemarkSet());
         
         //----------------------------------------------------------------------
-        //------------------------------1Passed-01------------------------------
+        //------------------------------2Failed-01------------------------------
         //----------------------------------------------------------------------
         processResult = processPageTest("Seo.Test.1.3.1-2Failed-01");
         // check number of elements in the page

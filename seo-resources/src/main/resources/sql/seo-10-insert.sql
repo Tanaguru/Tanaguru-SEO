@@ -43,6 +43,8 @@ INSERT IGNORE INTO `CRITERION` (`ID_CRITERION`, `reference_ID_REFERENCE`, `theme
 (1018, 1000, 1007, 'Seo-0706', 'Dans chaque ensemble de page, chaque titre de niveau 1 (balise H1) est-il unique?', '07.06', ' ', 1018),
 (1020, 1000, 1001, 'Seo-0106', 'Le site web possède-t-il un fichier décrivant le plan du site à destination des robots d\'indexation?', '01.05', ' ', 1020),
 (1021, 1000, 1008, 'Seo-0801', 'Le site possède-t-il du contenu flash?', '08.01', ' ', 1021);
+(1022, 1000, 1001, 'Seo-0107', 'La ré-écriture d\'URL est-elle mise en oeuvre?', '01.07', 1022);
+(1023, 1000, 1001, 'Seo-0108', 'L\'URL de la page comporte des paramètres, la ré-écriture d\'URL devrait être implémentée.', '01.08', 1023);
 
 --
 -- table `TEST`
@@ -77,5 +79,7 @@ INSERT IGNORE INTO `TEST` (`Id_Test`, `Cd_Test`, `Description`, `Label`, `Rank`,
 (1027, 'Seo-07061', '', '7.6.1', 10007061, '1.0', 'seo', 'org.opens.tanaguru.rules.seo.SeoRule07061', 1018, NULL, 1, 3, b'0'),
 (1029, 'Seo-08011', '', '8.1.1', 10008011, '1.0', 'seo', 'org.opens.tanaguru.rules.seo.SeoRule08011', 1021, NULL, 1, 1, b'0'),
 (1030, 'Seo-07013', '', '7.1.3', 10007013, '1.0', 'seo', 'org.opens.tanaguru.rules.seo.SeoRule07013', 1015, NULL, 1, 1, b'0');
+(1031, 'Seo-01071', '', '1.7.1', 10001071, '1.0', 'seo', 'org.opens.tanaguru.rules.seo.SeoRule01071', 1022, NULL, 1, 1, b'0'),
+(1032, 'Seo-01081', '', '1.8.1', 10001081, '1.0', 'seo', 'org.opens.tanaguru.rules.seo.SeoRule01081', 1023, NULL, 1, 1, b'0'),
 
 SET foreign_key_checks=1;
