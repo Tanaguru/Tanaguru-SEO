@@ -30,9 +30,9 @@ import org.opens.tanaguru.rules.keystore.RemarkMessageStore;
 import org.opens.tanaguru.service.ProcessRemarkService;
 
 /**
- * Is the sitemap.xml file present in the root directory of the site?
+ * The URL of the page contains parameters, Rewrite Rules should be implemented.
  *
- * @author jkowalczyk
+ * @author alingua
  */
 public class SeoRule01081 extends AbstractPageRuleImplementation {
 
