@@ -11,6 +11,8 @@
 /seo/src/main/resources/hsql-db.tmp
 /seo/nb-configuration.xml
 
+target
+
 # Package Files #
 *.jar
 *.war
