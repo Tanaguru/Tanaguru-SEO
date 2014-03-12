@@ -50,14 +50,11 @@ public class SeoRule01081 extends AbstractPageRuleImplementation {
             URL url = new URL(sspHandler.getSSP().getURI());
             if (StringUtils.isNotBlank(url.getPath()) && url.getPath().contains("_")) {
                 testSolution = TestSolution.FAILED;
+                processRemarkService.addProcessRemark(TestSolution.FAILED,
+                    RemarkMessageStore.URL_PATH_UNDERSCORE_DETECTED);
             }
         } catch (MalformedURLException ex) {
             testSolution = TestSolution.NOT_APPLICABLE;
-        }
-
-        if (testSolution.equals(TestSolution.FAILED)) {
-            processRemarkService.addProcessRemark(TestSolution.FAILED,
-                    RemarkMessageStore.URL_PATH_UNDERSCORE_DETECTED);
         }
 
         return this.definiteResultFactory.create(
