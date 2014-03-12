@@ -120,7 +120,7 @@ public class SeoRule01081Test extends AbstractUrlRuleImplementationTestCase {
      */
     public void testMalformedUrl() {
         // start by initialising the mock context
-        setParameterToInitMockMethod("http://my_url.com/a/b/c/index2.html", TestSolution.NOT_APPLICABLE);
+        setParameterToInitMockMethod("my_url.com/a/b/c/index2.html", TestSolution.NOT_APPLICABLE);
 
         SeoRule01081 test = new SeoRule01081();
         test.setDefiniteResultFactory(mockDefiniteResultFactory);
