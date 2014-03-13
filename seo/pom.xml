@@ -8,7 +8,7 @@
     <artifactId>tanaguru-seo</artifactId>
     <name>seo</name>
     <build>
-        <finalName>seo-${rulesVersion}</finalName>
+        <finalName>tanaguru-seo-${rulesVersion}</finalName>
     </build>
     <dependencies>
         <dependency>
