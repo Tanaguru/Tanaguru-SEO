@@ -43,8 +43,10 @@ import org.opens.tanaguru.util.http.HttpRequestHandler;
  */
 public class SeoRule01061 extends AbstractSiteRuleImplementation {
 
-    /* the sitemap URL suffix*/
-    private static final String SITEMAP_URL_SUFFIX = "/sitemap.xml";
+    /* the sitemap xml URL suffix*/
+    private static final String SITEMAP_XML_URL_SUFFIX = "/sitemap.xml";
+    /* the sitemap txt URL suffix*/
+    private static final String SITEMAP_TXT_URL_SUFFIX = "/sitemap.txt";
 
     public SeoRule01061() {
         super();
@@ -67,13 +69,26 @@ public class SeoRule01061 extends AbstractSiteRuleImplementation {
         processRemarkService.resetService();
         String robotsTxtContent = null;
         try {
-            robotsTxtContent = HttpRequestHandler.getInstance().getHttpContent(group.getURL()+SITEMAP_URL_SUFFIX);
+            robotsTxtContent = 
+                    HttpRequestHandler.getInstance().getHttpContent(group.getURL()+SITEMAP_XML_URL_SUFFIX);
         } catch (URISyntaxException ex) {
             Logger.getLogger(SeoRule01051.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnknownHostException ex) {
             Logger.getLogger(SeoRule01051.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(SeoRule01051.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (StringUtils.isEmpty(robotsTxtContent)) {
+            try {
+            robotsTxtContent = 
+                    HttpRequestHandler.getInstance().getHttpContent(group.getURL()+SITEMAP_TXT_URL_SUFFIX);
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(SeoRule01051.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (UnknownHostException ex) {
+                Logger.getLogger(SeoRule01051.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(SeoRule01051.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         if (StringUtils.isEmpty(robotsTxtContent)) {
             processRemarkService.addConsolidationRemark(
