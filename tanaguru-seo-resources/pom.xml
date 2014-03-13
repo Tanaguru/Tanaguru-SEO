@@ -20,7 +20,7 @@
                         <descriptor>src/main/resources/descriptor.xml</descriptor>
                     </descriptors>
                     <outputDirectory>target</outputDirectory>
-                    <finalName>tanaguru-seo-${engineVersion}.i386</finalName>
+                    <finalName>tanaguru-seo-${rulesVersion}.i386</finalName>
                 </configuration>
                 <executions>
                     <execution>
