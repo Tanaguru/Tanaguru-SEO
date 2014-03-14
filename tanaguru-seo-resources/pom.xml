@@ -10,7 +10,29 @@
     </parent>
     <artifactId>tanaguru-seo-all-resources</artifactId>
     <name>seo-all-resources</name>
+    
     <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/resources/descriptor.xml</descriptor>
+                    </descriptors>
+                    <outputDirectory>target</outputDirectory>
+                    <finalName>tanaguru-seo-${rulesVersion}.i386</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                    <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                    <phase>package</phase> <!-- append to the packaging phase. -->
+                    <goals>
+                        <goal>assembly</goal> <!-- goals == mojos -->
+                    </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
         <resources>
             <resource>
                 <directory>src/main/resources/</directory>
@@ -21,10 +43,16 @@
             </resource>
         </resources>
     </build>
-    <dependencies>
+<!--    <dependencies>
         <dependency>
             <groupId>${rulesGroupId}</groupId>
             <artifactId>tanaguru-seo</artifactId>
+            <scope>runtime</scope>
         </dependency>
-    </dependencies>
+        <dependency>
+            <groupId>${rulesGroupId}</groupId>
+            <artifactId>tanaguru-seo-i18n</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>-->
 </project>
