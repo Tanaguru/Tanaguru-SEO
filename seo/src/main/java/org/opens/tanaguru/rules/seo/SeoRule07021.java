@@ -19,45 +19,29 @@
  */
 package org.opens.tanaguru.rules.seo;
 
-
-import org.opens.tanaguru.entity.audit.TestSolution;
 import org.opens.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
-import org.opens.tanaguru.rules.elementchecker.element.ElementPresenceChecker;
+import org.opens.tanaguru.rules.elementchecker.element.ElementUnicityChecker;
 import org.opens.tanaguru.rules.elementselector.SimpleElementSelector;
+import org.opens.tanaguru.rules.keystore.HtmlElementStore;
 import static org.opens.tanaguru.rules.keystore.HtmlElementStore.H1_ELEMENT;
-import static org.opens.tanaguru.rules.keystore.HtmlElementStore.TEXT_ELEMENT2;
-import static org.opens.tanaguru.rules.keystore.RemarkMessageStore.H1_TAG_MISSING_MSG;
 import static org.opens.tanaguru.rules.keystore.RemarkMessageStore.MORE_THAN_ONE_H1_MSG;
 
 /**
  * This rule tests if each page has one and only one &lt;h1&gt; tag
+ *
  * @author jkowalczyk
  */
 public class SeoRule07021 extends AbstractPageRuleWithSelectorAndCheckerImplementation {
-    
+
     /**
      * Default constructor
      */
-    public SeoRule07021(){
+    public SeoRule07021() {
         super(
-                new SimpleElementSelector(H1_ELEMENT), 
-                
-                new ElementPresenceChecker(
-                    // check element has to be unique
-                    true,
-                    // solution when detected
-                    TestSolution.PASSED,
-                    // solution when not detected
-                    TestSolution.FAILED,
-                    // no message on detection
-                    null,
-                    // message when not detected
-                    H1_TAG_MISSING_MSG, 
-                    // message when multiple elements detected
-                    MORE_THAN_ONE_H1_MSG, 
-                    // evidence elements
-                    TEXT_ELEMENT2)
-            );
+                new SimpleElementSelector(H1_ELEMENT),
+                new ElementUnicityChecker(
+                null, // no message when unique cause the result is passed 
+                MORE_THAN_ONE_H1_MSG,
+                HtmlElementStore.TEXT_ELEMENT2));
     }
-
 }
