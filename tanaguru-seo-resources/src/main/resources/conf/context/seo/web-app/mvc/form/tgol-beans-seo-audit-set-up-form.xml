@@ -11,8 +11,8 @@
 
     <!-- Seo select elements -->
     <bean id="seoBronzeSelectElementBuilder" class="org.opens.tgol.form.builder.SelectElementBuilderImpl">
-        <property name="value" value="Seo;Bz"/>
-        <property name="i18nKey" value="Bz"/>
+        <property name="value" value="Seo;LEVEL_1"/>
+        <property name="i18nKey" value="Seo-LEVEL_1"/>
         <property name="errorI18nKey" value="Bz-error"/>
         <property name="defaultCode" value="DEFAULT_LEVEL"/>
         <!--    Default values
@@ -21,8 +21,8 @@
     </bean>
 
     <bean id="seoSilverSelectElementBuilder" class="org.opens.tgol.form.builder.SelectElementBuilderImpl">
-        <property name="value" value="Seo;Ar"/>
-        <property name="i18nKey" value="Ar"/>
+        <property name="value" value="Seo;LEVEL_2"/>
+        <property name="i18nKey" value="Seo-LEVEL_2"/>
         <property name="errorI18nKey" value="Ar-error"/>
         <property name="defaultCode" value="DEFAULT_LEVEL"/>
 <!--    Default values
@@ -31,8 +31,8 @@
     </bean>
 
     <bean id="seoGoldSelectElementBuilder" class="org.opens.tgol.form.builder.SelectElementBuilderImpl">
-        <property name="value" value="Seo;Or"/>
-        <property name="i18nKey" value="Or"/>
+        <property name="value" value="Seo;LEVEL_3"/>
+        <property name="i18nKey" value="Seo-LEVEL_3"/>
         <property name="errorI18nKey" value="Or-error"/>
         <property name="defaultCode" value="DEFAULT_LEVEL"/>
 <!--    Default values
@@ -46,39 +46,17 @@
             <ref bean="levelSelectFormFieldBuilder"/>
         </property>
         <property name="targetMethod">
-            <value>setSelectElementBuilderMap</value>
+            <value>addSelectElementBuilder</value>
         </property>
         <property name="arguments">
-             <map>
-                <entry key="AW21">
-                    <list>
-                        <ref bean="aw21BronzeSelectElementBuilder"/>
-                        <ref bean="aw21SilverSelectElementBuilder"/>
-                        <ref bean="aw21GoldSelectElementBuilder"/>
-                    </list>
-                </entry>
-                <entry key="AW22">
-                    <list>
-                        <ref bean="aw22BronzeSelectElementBuilder"/>
-                        <ref bean="aw22SilverSelectElementBuilder"/>
-                        <ref bean="aw22GoldSelectElementBuilder"/>
-                    </list>
-                </entry>
-                <entry key="RGAA22">
-                    <list>
-                        <ref bean="rgaa22ASelectElementBuilder"/>
-                        <ref bean="rgaa22AASelectElementBuilder"/>
-                        <ref bean="rgaa22AAASelectElementBuilder"/>
-                    </list>
-                </entry>
-                <entry key="Seo">
-                    <list>
-                        <ref bean="seoBronzeSelectElementBuilder"/>
-                        <ref bean="seoSilverSelectElementBuilder"/>
-                        <ref bean="seoGoldSelectElementBuilder"/>
-                    </list>
-                </entry>
-            </map>
+            <list>
+                <value>Seo</value>
+                <list>
+                    <ref bean="seoBronzeSelectElementBuilder"/>
+                    <ref bean="seoSilverSelectElementBuilder"/>
+                    <ref bean="seoGoldSelectElementBuilder"/>
+                </list>
+            </list>
         </property>
     </bean>
 

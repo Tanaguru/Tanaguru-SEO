@@ -5,6 +5,9 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <!-- seo imports -->
-    <import resource="seo-beans-analyser.xml"/>
+    <import resource="mvc/tgol-beans-seo-utils.xml"/>
+    <import resource="mvc/form/tgol-beans-seo-audit-result-console-form.xml"/>
+    <import resource="mvc/form/tgol-beans-seo-audit-set-up-form.xml"/>
+    <import resource="export/tgol-beans-seo-expression.xml"/>
 
 </beans>

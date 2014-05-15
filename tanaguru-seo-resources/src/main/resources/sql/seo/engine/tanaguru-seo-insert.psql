@@ -43,9 +43,9 @@ INSERT INTO "parameter_element" VALUES
 
 
 INSERT INTO "parameter"  (parameter_value, id_parameter_element, is_default) VALUES 
-('Seo;Or',5,FALSE),
-('Seo;Ar',5,FALSE),
-('Seo;Bz',5,FALSE);
+('Seo;LEVEL_3',5,FALSE),
+('Seo;LEVEL_2',5,FALSE),
+('Seo;LEVEL_1',5,FALSE);
 
 
 -- Post-data save --
