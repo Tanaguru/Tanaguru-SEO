@@ -18,27 +18,27 @@ INSERT INTO "theme" VALUES
 (1008,'Seo-08',NULL,'Multimedia',7);
 
 INSERT INTO "criterion" VALUES 
-(1001,'Seo-0101','Chaque page web a-t-elle un meta description?','01.01',1001,' ',1000,1001),
-(1002,'Seo-0102','Dans chaque ensemble de page, la meta description de chaque page web est-elle unique?','01.02',1002,' ',1000,1001),
-(1003,'Seo-0103','Dans chaque page web, la longueur de l''URL est-elle inférieure ou égale à 255 caractères?','01.03',1003,' ',1000,1001),
-(1004,'Seo-0104','Dans chaque ensemble de pages, chaque code source HTML est-il unique ?','01.04',1004,' ',1000,1001),
-(1005,'Seo-0105','Le site web possède-t-il un fichier texte contenant des commandes à destination des robots d''indexation?','01.05',1005,' ',1000,1001),
-(1006,'Seo-0201','Chaque image a-t-elle une alternative textuelle ?','02.01',1006,' ',1000,1002),
-(1007,'Seo-0301','Chaque cadre et chaque cadre en ligne a-t-il un titre de cadre ?','03.01',1007,' ',1000,1003),
-(1009,'Seo-0501','Chaque intitulé de lien seul est-il explicite hors contexte (hors cas particuliers) ?','05.01',1009,' ',1000,1005),
-(1010,'Seo-0601','Chaque page web a-t-elle un titre de page ?','06.01',1010,' ',1000,1006),
-(1011,'Seo-0602','Pour chaque page web ayant un titre de page,  ce titre est-il pertinent ?','06.02',1011,' ',1000,1006),
-(1012,'Seo-0603','Dans chaque page web, la longueur du titre est-elle inférieure ou égale à 70 caractères?','06.03',1012,' ',1000,1006),
-(1013,'Seo-0604','Dans chaque ensemble de page, le titre (balise title) est-il unique?','06.04',1013,' ',1000,1006),
-(1014,'Seo-0605','Chaque page web est-elle définie par un type de document ?','06.05',1014,' ',1000,1006),
-(1015,'Seo-0701','Dans chaque page web, l''information est-elle structurée par l''utilisation appropriée de titres?','07.01',1015,' ',1000,1007),
-(1016,'Seo-0702','Dans chaque page web, l''information est-elle optimisée par l''utilisation appropriée de titres ?','07.02',1016,' ',1000,1007),
-(1017,'Seo-0705','Dans chaque page web, le titre de niveau 1 (balise h1) est-il différent du titre de page (balise title) ?','07.05',1017,' ',1000,1007),
-(1018,'Seo-0706','Dans chaque ensemble de page, chaque titre de niveau 1 (balise H1) est-il unique?','07.06',1018,' ',1000,1007),
-(1020,'Seo-0106','Le site web possède-t-il un fichier décrivant le plan du site à destination des robots d''indexation?','01.05',1020,' ',1000,1001),
-(1021,'Seo-0801','Le site possède-t-il du contenu flash?','08.01',1021,' ',1000,1008);
-(1022,'Seo-0107','La ré-écriture d\'URL est-elle mise en oeuvre?','01.07',1022,' ',1000,1001);
-(1023,'Seo-0108','L\'URL de la page comporte des paramètres, la ré-écriture d\'URL devrait être implémentée.','01.08',1023,' ',1000,1001);
+(1001,'Seo-0101','','01.01',1001,' ',1000,1001),
+(1002,'Seo-0102','','01.02',1002,' ',1000,1001),
+(1003,'Seo-0103','','01.03',1003,' ',1000,1001),
+(1004,'Seo-0104','','01.04',1004,' ',1000,1001),
+(1005,'Seo-0105','','01.05',1005,' ',1000,1001),
+(1006,'Seo-0201','','02.01',1006,' ',1000,1002),
+(1007,'Seo-0301','','03.01',1007,' ',1000,1003),
+(1009,'Seo-0501','','05.01',1009,' ',1000,1005),
+(1010,'Seo-0601','','06.01',1010,' ',1000,1006),
+(1011,'Seo-0602','','06.02',1011,' ',1000,1006),
+(1012,'Seo-0603','','06.03',1012,' ',1000,1006),
+(1013,'Seo-0604','','06.04',1013,' ',1000,1006),
+(1014,'Seo-0605','','06.05',1014,' ',1000,1006),
+(1015,'Seo-0701','','07.01',1015,' ',1000,1007),
+(1016,'Seo-0702','','07.02',1016,' ',1000,1007),
+(1017,'Seo-0705','','07.05',1017,' ',1000,1007),
+(1018,'Seo-0706','','07.06',1018,' ',1000,1007),
+(1020,'Seo-0106','','01.05',1020,' ',1000,1001),
+(1021,'Seo-0801','','08.01',1021,' ',1000,1008);
+(1022,'Seo-0107','','01.07',1022,' ',1000,1001);
+(1023,'Seo-0108','','01.08',1023,' ',1000,1001);
 
 INSERT INTO "test" VALUES 
 (1001,'Seo-01011','','1.1.1',10001011,1.0,'seo','org.opens.tanaguru.rules.seo.SeoRule01011',NULL,1001,NULL,1,NULL,1,FALSE),
