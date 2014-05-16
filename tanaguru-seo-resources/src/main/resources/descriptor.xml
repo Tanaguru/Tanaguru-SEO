@@ -21,13 +21,21 @@
             <outputDirectory>/bin</outputDirectory>
         </fileSet>
         <fileSet>
+            <directory>${basedir}/src/main/resources/</directory>
+            <includes>
+                <include>install-seo.sh</include>
+            </includes>
+            <fileMode>755</fileMode>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+<!--        <fileSet>
             <directory>${basedir}/src/main/resources/conf/context</directory>
             <includes>
                 <include>**/*</include>
             </includes>
             <fileMode>666</fileMode>
             <outputDirectory>/conf/context</outputDirectory>
-        </fileSet>
+        </fileSet>-->
         <fileSet>
             <directory>${basedir}/src/main/resources/sql</directory>
             <includes>
@@ -54,6 +62,14 @@
         </fileSet>
         <fileSet>
             <directory>${basedir}/../seo-i18n/target</directory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+            <fileMode>666</fileMode>
+            <outputDirectory>/lib/</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/target</directory>
             <includes>
                 <include>*.jar</include>
             </includes>

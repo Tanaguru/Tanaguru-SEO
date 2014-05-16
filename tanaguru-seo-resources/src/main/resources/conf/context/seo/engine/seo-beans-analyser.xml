@@ -14,7 +14,7 @@
         </property>
         <property name="arguments">
             <list>
-                <value>TEST_WEIGHT_MANAGEMENT</value>
+                <value>Seo_TEST_WEIGHT_MANAGEMENT</value>
             </list>
         </property>
     </bean>

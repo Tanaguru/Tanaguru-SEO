@@ -30,7 +30,7 @@ import org.opens.tanaguru.rules.seo.test.SeoRuleImplementationTestCase;
  * @author jkowalczyk
  */
 public class SeoRule07021Test extends SeoRuleImplementationTestCase {
-    
+
     public SeoRule07021Test(String testName) {
         super(testName);
     }
@@ -45,15 +45,15 @@ public class SeoRule07021Test extends SeoRuleImplementationTestCase {
         getWebResourceMap().put("Seo.Test.7.2.1-1Passed-01",
                 getWebResourceFactory().createPage(
                 getTestcasesFilePath() + "SEO/SeoRule07021/Seo.Test.7.2.1-1Passed-01.html"));
+        getWebResourceMap().put("Seo.Test.7.2.1-4NA-01",
+                getWebResourceFactory().createPage(
+                getTestcasesFilePath() + "SEO/SeoRule07021/Seo.Test.7.2.1-4NA-01.html"));
+        getWebResourceMap().put("Seo.Test.7.2.1-4NA-02",
+                getWebResourceFactory().createPage(
+                getTestcasesFilePath() + "SEO/SeoRule07021/Seo.Test.7.2.1-4NA-02.html"));
         getWebResourceMap().put("Seo.Test.7.2.1-2Failed-01",
                 getWebResourceFactory().createPage(
                 getTestcasesFilePath() + "SEO/SeoRule07021/Seo.Test.7.2.1-2Failed-01.html"));
-        getWebResourceMap().put("Seo.Test.7.2.1-2Failed-02",
-                getWebResourceFactory().createPage(
-                getTestcasesFilePath() + "SEO/SeoRule07021/Seo.Test.7.2.1-2Failed-02.html"));
-        getWebResourceMap().put("Seo.Test.7.2.1-2Failed-03",
-                getWebResourceFactory().createPage(
-                getTestcasesFilePath() + "SEO/SeoRule07021/Seo.Test.7.2.1-2Failed-03.html"));
     }
 
     @Override
@@ -63,37 +63,32 @@ public class SeoRule07021Test extends SeoRuleImplementationTestCase {
         assertEquals(TestSolution.PASSED, processResult.getValue());
         assertNull(processResult.getRemarkSet());
 
+        processResult = processPageTest("Seo.Test.7.2.1-4NA-01");
+        assertEquals(TestSolution.NOT_APPLICABLE, processResult.getValue());
+        assertNull(processResult.getRemarkSet());
+
+        processResult = processPageTest("Seo.Test.7.2.1-4NA-02");
+        assertEquals(TestSolution.NOT_APPLICABLE, processResult.getValue());
+        assertNull(processResult.getRemarkSet());
+
         processResult = processPageTest("Seo.Test.7.2.1-2Failed-01");
         assertEquals(TestSolution.FAILED, processResult.getValue());
-        assertEquals(1,processResult.getRemarkSet().size());
-        assertEquals(RemarkMessageStore.H1_TAG_MISSING_MSG,
-                ((ProcessRemark)processResult.getRemarkSet().toArray()[0]).getMessageCode());
-
-        processResult = processPageTest("Seo.Test.7.2.1-2Failed-02");
-        assertEquals(TestSolution.FAILED, processResult.getValue());
-        assertEquals(1,processResult.getRemarkSet().size());
-        assertEquals(RemarkMessageStore.H1_TAG_MISSING_MSG,
-                ((ProcessRemark)processResult.getRemarkSet().toArray()[0]).getMessageCode());
-
-        processResult = processPageTest("Seo.Test.7.2.1-2Failed-03");
-        assertEquals(TestSolution.FAILED, processResult.getValue());
-        assertEquals(2,processResult.getRemarkSet().size());
+        assertEquals(2, processResult.getRemarkSet().size());
         assertEquals(RemarkMessageStore.MORE_THAN_ONE_H1_MSG,
-                ((ProcessRemark)processResult.getRemarkSet().toArray()[0]).getMessageCode());
+                ((ProcessRemark) processResult.getRemarkSet().toArray()[0]).getMessageCode());
         assertEquals(RemarkMessageStore.MORE_THAN_ONE_H1_MSG,
-                ((ProcessRemark)processResult.getRemarkSet().toArray()[1]).getMessageCode());
+                ((ProcessRemark) processResult.getRemarkSet().toArray()[1]).getMessageCode());
     }
 
     @Override
     protected void setConsolidate() {
         assertEquals(TestSolution.PASSED,
                 consolidate("Seo.Test.7.2.1-1Passed-01").getValue());
+        assertEquals(TestSolution.NOT_APPLICABLE,
+                consolidate("Seo.Test.7.2.1-4NA-01").getValue());
+        assertEquals(TestSolution.NOT_APPLICABLE,
+                consolidate("Seo.Test.7.2.1-4NA-02").getValue());
         assertEquals(TestSolution.FAILED,
                 consolidate("Seo.Test.7.2.1-2Failed-01").getValue());
-        assertEquals(TestSolution.FAILED,
-                consolidate("Seo.Test.7.2.1-2Failed-02").getValue());
-        assertEquals(TestSolution.FAILED,
-                consolidate("Seo.Test.7.2.1-2Failed-03").getValue());
     }
-
 }
