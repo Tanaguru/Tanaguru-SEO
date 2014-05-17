@@ -41,14 +41,6 @@
         <property name="enabled" value="true"/>
     </bean>
 
-    <bean id="seoTableThemeSelectElementBuilder" class="org.opens.tgol.form.builder.SelectElementBuilderImpl">
-        <property name="value" value="Seo-04"/>
-        <property name="i18nKey" value="Seo-04-select"/>
-        <property name="errorI18nKey" value="Seo-04-select-error"/>
-        <property name="default" value="false"/>
-        <property name="enabled" value="true"/>
-    </bean>
-
     <bean id="seoLinkThemeSelectElementBuilder" class="org.opens.tgol.form.builder.SelectElementBuilderImpl">
         <property name="value" value="Seo-05"/>
         <property name="i18nKey" value="Seo-05-select"/>
@@ -93,7 +85,6 @@
                         <ref local="seoSeoBasisThemeSelectElementBuilder"/>
                         <ref local="seoImageThemeSelectElementBuilder"/>
                         <ref local="seoFrameThemeSelectElementBuilder"/>
-                        <ref local="seoTableThemeSelectElementBuilder"/>
                         <ref local="seoLinkThemeSelectElementBuilder"/>
                         <ref local="seoMandatoryElementsThemeSelectElementBuilder"/>
                         <ref local="seoInfoStructureThemeSelectElementBuilder"/>
@@ -101,6 +92,19 @@
                     </list>
                 </entry>
             </map>
+        </property>
+    </bean>
+    
+<!--     Add seo elements to the audit form field builder   -->
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <ref bean="auditResultController"/>
+        </property>
+        <property name="targetMethod">
+            <value>addFormFieldBuilder</value>
+        </property>
+        <property name="arguments">
+            <ref bean="seoThemeSelectFormFieldBuilder"/>
         </property>
     </bean>
 

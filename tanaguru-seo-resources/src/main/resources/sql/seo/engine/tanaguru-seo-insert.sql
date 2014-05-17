@@ -3,7 +3,7 @@ SET foreign_key_checks=0;
 INSERT IGNORE INTO `PARAMETER_FAMILY` (`Id_Parameter_Family`, `Cd_Parameter_Family`, `Description`, `Long_Label`, `Short_Label`) VALUES
 (4, 'Seo_TEST_WEIGHT_MANAGEMENT', 'This paramaters handles the test weight potentially overridden by users', 'test weight parameters', 'test weight params');
 
-INSERT IGNORE INTO `PARAMETER_ELEMENT` (`Id_Parameter_Element`, `Cd_Parameter_Element`, `Id_Parameter_Family`, `Long_Label`, `Short_Label`) VALUES
+INSERT IGNORE INTO `PARAMETER_ELEMENT` (`Cd_Parameter_Element`, `Id_Parameter_Family`, `Long_Label`, `Short_Label`) VALUES
 ('Seo-01011', 4, 'Weight of rule Seo-01011 overriden by user', 'Seo-01011 weight'),
 ('Seo-01012', 4, 'Weight of rule Seo-01011 overriden by user', 'Seo-01011 weight'),
 ('Seo-01013', 4, 'Weight of rule Seo-01011 overriden by user', 'Seo-01011 weight'),
@@ -12,6 +12,8 @@ INSERT IGNORE INTO `PARAMETER_ELEMENT` (`Id_Parameter_Element`, `Cd_Parameter_El
 ('Seo-01041', 4, 'Weight of rule Seo-01041 overriden by user', 'Seo-01041 weight'),
 ('Seo-01051', 4, 'Weight of rule Seo-01051 overriden by user', 'Seo-01051 weight'),
 ('Seo-01061', 4, 'Weight of rule Seo-01061 overriden by user', 'Seo-01061 weight'),
+('Seo-01071', 4, 'Weight of rule Seo-01071 overriden by user', 'Seo-01071 weight'),
+('Seo-01081', 4, 'Weight of rule Seo-01081 overriden by user', 'Seo-01081 weight'),
 ('Seo-02011', 4, 'Weight of rule Seo-02011 overriden by user', 'Seo-02011 weight'),
 ('Seo-02012', 4, 'Weight of rule Seo-02012 overriden by user', 'Seo-02012 weight'),
 ('Seo-02013', 4, 'Weight of rule Seo-02013 overriden by user', 'Seo-02013 weight'),
@@ -36,8 +38,8 @@ INSERT IGNORE INTO `PARAMETER_ELEMENT` (`Id_Parameter_Element`, `Cd_Parameter_El
 
 
 INSERT IGNORE INTO `PARAMETER` (`Id_Parameter_Element`, `Parameter_Value`, `Is_Default`) VALUES
-(5, 'Seo;Or', b'0'),
-(5, 'Seo;Ar', b'0'),
-(5, 'Seo;Bz', b'0');
+(5, 'Seo;LEVEL_3', b'0'),
+(5, 'Seo;LEVEL_2', b'0'),
+(5, 'Seo;LEVEL_1', b'0');
 
 SET foreign_key_checks=1;

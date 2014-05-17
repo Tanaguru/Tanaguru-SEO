@@ -1,4 +1,16 @@
 ------------------------------
+Tanaguru-SEO 1.0.1, 2014-05-16
+------------------------------
+Bugs :
+#9 : Rename all rules (because theme 4 is empty) (https://github.com/Tanaguru/Tanaguru-SEO/issues/9) 
+#8 : 7.2.1 must give NA when page has no h1 (https://github.com/Tanaguru/Tanaguru-SEO/issues/8)
+
+Features : 
+#14 : Reorganize rules by (new) levels (https://github.com/Tanaguru/Tanaguru-SEO/issues/14)
+#13 : Rename levelS (https://github.com/Tanaguru/Tanaguru-SEO/issues/13)
+#3 : Rules labels: homogenize tags (https://github.com/Tanaguru/Tanaguru-SEO/issues/3)
+
+------------------------------
 Tanaguru-SEO 1.0.0, 2014-03-14
 ------------------------------
 Initial commit on private repos 
