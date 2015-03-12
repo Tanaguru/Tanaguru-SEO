@@ -44,8 +44,8 @@ import org.opens.tanaguru.rules.textbuilder.TextElementBuilder;
  */
 public class SeoRule07051 extends AbstractPageRuleMarkupImplementation {
 
-    private ElementHandler<Element> h1Elements = new ElementHandlerImpl();
-    private ElementHandler<Element> titleElement = 
+    private final ElementHandler<Element> h1Elements = new ElementHandlerImpl();
+    private final ElementHandler<Element> titleElement = 
 				new ElementHandlerImpl();
 
     public SeoRule07051() {
@@ -53,7 +53,7 @@ public class SeoRule07051 extends AbstractPageRuleMarkupImplementation {
     }
 
     @Override
-    protected void select(SSPHandler sspHandler, ElementHandler<Element> elementHandler) {
+    protected void select(SSPHandler sspHandler) {
         ElementSelector selector = new SimpleElementSelector(H1_ELEMENT);
 	selector.selectElements(sspHandler, h1Elements);
 	// only keep one title when more than 2 are encountered
@@ -67,7 +67,6 @@ public class SeoRule07051 extends AbstractPageRuleMarkupImplementation {
 
     @Override
     protected void check(SSPHandler sspHandler, 
-                         ElementHandler<Element> elementHandler,
                          TestSolutionHandler testSolutionHandler) {
 	if (titleElement.isEmpty() || h1Elements.isEmpty()) {
 	    testSolutionHandler.addTestSolution(TestSolution.NOT_APPLICABLE);
@@ -89,5 +88,10 @@ public class SeoRule07051 extends AbstractPageRuleMarkupImplementation {
 	}
 	testSolutionHandler.addTestSolution(TestSolution.PASSED);
     }
+
+  @Override
+  public int getSelectionSize() {
+      return titleElement.size() + h1Elements.size();
+  }
 
 }

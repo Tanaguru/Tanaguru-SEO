@@ -41,15 +41,14 @@ public class SeoRule01031 extends AbstractPageRuleMarkupImplementation {
     }
 
     @Override
-    protected void select(SSPHandler sspHandler, ElementHandler<Element> elementHandler) {
+    protected void select(final SSPHandler sspHandler) {
         // do nothing
     }
     
     @Override
     protected void check(
-            SSPHandler sspHandler, 
-            ElementHandler<Element> selectionHandler, 
-            TestSolutionHandler testSolutionHandler) {
+            final SSPHandler sspHandler, 
+            final TestSolutionHandler testSolutionHandler) {
 
         if (sspHandler.getSSP().getURI().length() > URL_MAX_LENGTH) {
             testSolutionHandler.addTestSolution(TestSolution.FAILED);

@@ -24,6 +24,7 @@ import org.opens.tanaguru.entity.audit.TestSolution;
 import org.opens.tanaguru.processor.SSPHandler;
 import org.opens.tanaguru.ruleimplementation.AbstractPageRuleMarkupImplementation;
 import org.opens.tanaguru.ruleimplementation.ElementHandler;
+import org.opens.tanaguru.ruleimplementation.ElementHandlerImpl;
 import org.opens.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.opens.tanaguru.rules.elementchecker.ElementChecker;
 import org.opens.tanaguru.rules.elementchecker.text.TextLengthChecker;
@@ -43,7 +44,7 @@ public class SeoRule06031 extends AbstractPageRuleMarkupImplementation {
 
     /* the max length of the title element */
     private static final int TITLE_MAX_LENGTH = 100;
-
+    private final ElementHandler<Element> elementHandler = new ElementHandlerImpl();
     /*
      * Constructor
      */
@@ -52,7 +53,7 @@ public class SeoRule06031 extends AbstractPageRuleMarkupImplementation {
     }
 
      @Override
-    protected void select(SSPHandler sspHandler, ElementHandler<Element> elementHandler) {
+    protected void select(SSPHandler sspHandler) {
         ElementSelector es = new SimpleElementSelector(TITLE_WITHIN_HEAD_CSS_LIKE_QUERY);
         es.selectElements(sspHandler, elementHandler);
     }
@@ -60,7 +61,6 @@ public class SeoRule06031 extends AbstractPageRuleMarkupImplementation {
     @Override
     protected void check(
             SSPHandler sspHandler, 
-            ElementHandler<Element> elementHandler, 
             TestSolutionHandler testSolutionHandler) {
         if (elementHandler.isEmpty()) {
             testSolutionHandler.addTestSolution(TestSolution.NOT_APPLICABLE);
@@ -69,17 +69,22 @@ public class SeoRule06031 extends AbstractPageRuleMarkupImplementation {
 
         // in case of more than one title, keep the first. 
         if (elementHandler.get().size() > 1) {
-            Element el = elementHandler.get().iterator().next();
-            elementHandler.clean().add(el);
+            Element element = elementHandler.get().iterator().next();
+            elementHandler.clean().add(element);
         }
 
-        ElementChecker ec = new TextLengthChecker(
+        ElementChecker checker = new TextLengthChecker(
                 new SimpleTextElementBuilder(), 
                 TITLE_MAX_LENGTH, 
                 TITLE_EXCEEDS_LIMIT_MSG, 
                 // evidence elements
                 HtmlElementStore.TEXT_ELEMENT2);
-        ec.check(sspHandler, elementHandler, testSolutionHandler);
+        checker.check(sspHandler, elementHandler, testSolutionHandler);
     }
+
+  @Override
+  public int getSelectionSize() {
+      return elementHandler.size();
+  }
 
 }
