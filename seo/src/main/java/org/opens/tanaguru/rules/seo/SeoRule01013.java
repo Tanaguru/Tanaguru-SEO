@@ -24,10 +24,10 @@ import org.opens.tanaguru.entity.audit.TestSolution;
 import org.opens.tanaguru.processor.SSPHandler;
 import org.opens.tanaguru.ruleimplementation.AbstractPageRuleMarkupImplementation;
 import org.opens.tanaguru.ruleimplementation.ElementHandler;
+import org.opens.tanaguru.ruleimplementation.ElementHandlerImpl;
 import org.opens.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.opens.tanaguru.rules.elementchecker.ElementChecker;
 import org.opens.tanaguru.rules.elementchecker.text.TextLengthChecker;
-import org.opens.tanaguru.rules.elementselector.ElementSelector;
 import org.opens.tanaguru.rules.elementselector.SimpleElementSelector;
 import org.opens.tanaguru.rules.keystore.AttributeStore;
 import static org.opens.tanaguru.rules.keystore.CssLikeQueryStore.META_DESC_CSS_LIKE_QUERY;
@@ -41,7 +41,8 @@ import org.opens.tanaguru.rules.textbuilder.TextAttributeOfElementBuilder;
  */
 public class SeoRule01013 extends AbstractPageRuleMarkupImplementation {
 
-    private static int MAX_META_DESC_LENGTH = 255;
+    private final static int MAX_META_DESC_LENGTH = 255;
+    private final ElementHandler<Element> elementHandler = new ElementHandlerImpl();
     
     /*
      * Constructor
@@ -51,27 +52,30 @@ public class SeoRule01013 extends AbstractPageRuleMarkupImplementation {
     }
     
     @Override
-    protected void select(SSPHandler sspHandler, ElementHandler<Element> elementHandler) {
-        ElementSelector es = new SimpleElementSelector(META_DESC_CSS_LIKE_QUERY);
-        es.selectElements(sspHandler, elementHandler);
+    protected void select(final SSPHandler sspHandler) {
+        new SimpleElementSelector(META_DESC_CSS_LIKE_QUERY).selectElements(sspHandler, elementHandler);
     }
     
     @Override
     protected void check(
-            SSPHandler sspHandler, 
-            ElementHandler<Element> elementHandler, 
-            TestSolutionHandler testSolutionHandler) {
+            final SSPHandler sspHandler, 
+            final TestSolutionHandler testSolutionHandler) {
         if (elementHandler.isEmpty() || elementHandler.get().size() > 1) {
             testSolutionHandler.addTestSolution(TestSolution.NOT_APPLICABLE);
             return;
         }
-        ElementChecker ec = new TextLengthChecker(
+        ElementChecker checker = new TextLengthChecker(
                 new TextAttributeOfElementBuilder(AttributeStore.CONTENT_ATTR), 
                 MAX_META_DESC_LENGTH, 
                 META_DESC_EXCEEDS_LIMIT_MSG, 
                 // evidence elements
                 AttributeStore.CONTENT_ATTR);
-        ec.check(sspHandler, elementHandler, testSolutionHandler);
+        checker.check(sspHandler, elementHandler, testSolutionHandler);
     }
+
+  @Override
+  public int getSelectionSize() {
+      return elementHandler.size();
+  }
 
 }

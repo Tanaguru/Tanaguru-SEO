@@ -54,7 +54,7 @@ public class SeoRule08011 extends AbstractPageRuleMarkupImplementation {
     }
 
     @Override
-    protected void select(SSPHandler sspHandler, ElementHandler<Element> elementHandler) {
+    protected void select(SSPHandler sspHandler) {
         ElementSelector es = new SimpleElementSelector(FLASH_CONTENT_CSS_LIKE_QUERY);
 	es.selectElements(sspHandler, decidableElements);
         es = new SimpleElementSelector(SCRIPT_ELEMENT);
@@ -70,7 +70,6 @@ public class SeoRule08011 extends AbstractPageRuleMarkupImplementation {
 
     @Override
     protected void check(SSPHandler sspHandler, 
-                         ElementHandler<Element> elementHandler,
                          TestSolutionHandler testSolutionHandler) {
         ElementChecker ec = new ElementPresenceChecker(
 				TestSolution.FAILED, 
@@ -107,5 +106,10 @@ public class SeoRule08011 extends AbstractPageRuleMarkupImplementation {
         }
         return testSolution;
     }
+
+  @Override
+  public int getSelectionSize() {
+      return decidableElements.size() + notDecidableElements.size();
+  }
 
 }

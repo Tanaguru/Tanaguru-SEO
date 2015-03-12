@@ -25,7 +25,6 @@ import org.opens.tanaguru.entity.audit.EvidenceElement;
 import org.opens.tanaguru.entity.audit.ProcessRemark;
 import org.opens.tanaguru.processor.SSPHandler;
 import org.opens.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
-import org.opens.tanaguru.ruleimplementation.ElementHandler;
 import org.opens.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.opens.tanaguru.rules.elementchecker.pertinence.TextPertinenceChecker;
 import org.opens.tanaguru.rules.elementselector.SimpleElementSelector;
@@ -71,10 +70,9 @@ public class SeoRule07013 extends AbstractPageRuleWithSelectorAndCheckerImplemen
 
     @Override
     protected void check(
-            SSPHandler sspHandler, 
-            ElementHandler elementHandler, 
+            final SSPHandler sspHandler, 
             TestSolutionHandler testSolutionHandler) {
-        super.check(sspHandler, elementHandler, testSolutionHandler);
+        super.check(sspHandler, testSolutionHandler);
         ProcessRemarkService prs = sspHandler.getProcessRemarkService();
         if (CollectionUtils.isNotEmpty(prs.getRemarkList())) {
             for (ProcessRemark pr : prs.getRemarkList()) {

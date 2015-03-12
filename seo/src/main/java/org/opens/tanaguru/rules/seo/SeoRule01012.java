@@ -23,7 +23,6 @@ import org.jsoup.nodes.Element;
 import org.opens.tanaguru.entity.audit.TestSolution;
 import org.opens.tanaguru.processor.SSPHandler;
 import org.opens.tanaguru.ruleimplementation.AbstractPageRuleWithSelectorAndCheckerImplementation;
-import org.opens.tanaguru.ruleimplementation.ElementHandler;
 import org.opens.tanaguru.ruleimplementation.TestSolutionHandler;
 import org.opens.tanaguru.rules.elementchecker.pertinence.TextPertinenceChecker;
 import org.opens.tanaguru.rules.elementselector.ElementSelector;
@@ -71,18 +70,17 @@ public class SeoRule01012 extends AbstractPageRuleWithSelectorAndCheckerImplemen
     
     @Override
     protected void check(
-            SSPHandler sspHandler, 
-            ElementHandler elementHandler, 
-            TestSolutionHandler testSolutionHandler) {
-        if (elementHandler.isEmpty()) {
+            final SSPHandler sspHandler, 
+            final TestSolutionHandler testSolutionHandler) {
+        if (getElements().isEmpty()) {
             testSolutionHandler.addTestSolution(TestSolution.NOT_APPLICABLE);
             return;
         }
-        if (elementHandler.get().size() > 1)  {
-            Element el = (Element)elementHandler.get().iterator().next();
-            elementHandler.clean().add(el);
+        if (getElements().get().size() > 1)  {
+            Element fisrtEl = (Element)getElements().get().iterator().next();
+            getElements().clean().add(fisrtEl);
         }
-        super.check(sspHandler, elementHandler, testSolutionHandler);
+        super.check(sspHandler, testSolutionHandler);
     }
 
 }
