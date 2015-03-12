@@ -65,7 +65,6 @@
                 <artifactId>tanaguru-rules-commons</artifactId>
                 <version>${rulesVersion}</version>
             </dependency>
-
             <dependency>
                 <groupId>${rulesGroupId}</groupId>
                 <artifactId>tanaguru-seo</artifactId>
