@@ -50,7 +50,7 @@
     </properties>
     <repositories>
         <repository>
-            <url>http://qa.open-s.com:8280/repository/tanaguru-releases-repo</url>
+            <url>http://qa.tanaguru.com:8280/repository/tanaguru-releases-repo</url>
             <id>tanaguru-releases-repo</id>
             <releases>
                 <enabled>true</enabled>
