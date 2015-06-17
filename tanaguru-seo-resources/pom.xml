@@ -6,11 +6,10 @@
     <parent>
         <groupId>org.tanaguru</groupId>
         <artifactId>seo</artifactId>
-        <version>1.0.4</version>
+        <version>1.0.5</version>
     </parent>
     <artifactId>tanaguru-seo-all-resources</artifactId>
     <name>seo-all-resources</name>
-    
     <build>
         <plugins>
             <plugin>
@@ -43,16 +42,4 @@
             </resource>
         </resources>
     </build>
-<!--    <dependencies>
-        <dependency>
-            <groupId>${rulesGroupId}</groupId>
-            <artifactId>tanaguru-seo</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>${rulesGroupId}</groupId>
-            <artifactId>tanaguru-seo-i18n</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-    </dependencies>-->
 </project>

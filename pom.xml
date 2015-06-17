@@ -4,7 +4,7 @@
     <groupId>org.tanaguru</groupId>
     <artifactId>seo</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <name>seo</name>
     <build>
         <plugins>
@@ -39,13 +39,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
-        <engineGroupId>org.opens</engineGroupId>
+        <engineGroupId>org.tanaguru</engineGroupId>
         <engineVersion>LATEST</engineVersion>
 	        
-        <testingToolsGroupId>org.opens</testingToolsGroupId>
+        <testingToolsGroupId>org.tanaguru</testingToolsGroupId>
         <testingToolsVersion>LATEST</testingToolsVersion>
 
-        <rulesGroupId>org.opens</rulesGroupId>
+        <rulesGroupId>org.tanaguru</rulesGroupId>
         <rulesVersion>LATEST</rulesVersion>
     </properties>
     <repositories>
